@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pet.name %>
+</p>
+
+<p>
+  <strong>Breed:</strong>
+  <%= @pet.breed %>
+</p>
+
+<p>
+  <strong>Birthtime:</strong>
+  <%= @pet.birthtime %>
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Height</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pet.pet_histories.each do |pet_history| %>
+      <tr>
+        <td><%= pet_history.weight %></td>
+        <td><%= pet_history.height %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Average Weight</th>
+      <th>Average Height</th>
+      <th>Maximum Weight</th>
+      <th>Minimum Height</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+      <th><%= @pet.average_weight %></th>
+      <th><%= @pet.average_height %></th>
+      <th><%= @pet.maximum_weight %></th>
+      <th><%= @pet.maximum_height %></th>
+  </tr>
+  </tbody>
+</table>
+<%= link_to "<button class='btn btn-light'>Edit</button>".html_safe, edit_pet_path(@pet), :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+<%= link_to "<button class='btn btn-light'>Back</button>".html_safe, pets_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
